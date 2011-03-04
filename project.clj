@@ -3,7 +3,7 @@
   :url "http://github.com/weavejester/hiccup"
   :dependencies
     [[org.clojure/clojure "1.2.0"]
-     [org.clojure/clojure-contrib "1.2.0"]]
+     [org.clojure.contrib/mock "1.3.0-alpha4"]]
   :dev-dependencies 
     [[autodoc "0.7.1" :exclusions [org.clojure/clojure
                                    org.clojure/clojure-contrib]]]

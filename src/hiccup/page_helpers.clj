@@ -1,9 +1,7 @@
 (ns hiccup.page-helpers
   "Functions for generating various common elements."
   (:import java.net.URLEncoder)
-  (:use [hiccup.core :only (defelem html resolve-uri)]
-        [clojure.contrib.java-utils :only (as-str)]
-        [clojure.contrib.str-utils :only (str-join)]))
+  (:use [hiccup.core :only (as-str defelem html resolve-uri)]))
 
 (def doctype
   {:html4
@@ -119,9 +117,9 @@
   "Turn a map of parameters into a urlencoded string."
   [params]
   (letfn [(encode [s] (URLEncoder/encode (as-str s)))]
-    (str-join "&"
+    (apply str (interpose "&"
       (for [[k v] params]
-        (str (encode k) "=" (encode v))))))
+        (str (encode k) "=" (encode v)))))))
 
 (defn url
   "Creates a URL string from a variable list of arguments and an optional
